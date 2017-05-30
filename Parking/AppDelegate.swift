@@ -10,12 +10,17 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var service: PKService?
     var window: UIWindow?
-
+    
+    static var service: PKService {
+        return (UIApplication.shared.delegate! as! AppDelegate).service!
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        service = PKService()
+        
         return true
     }
 

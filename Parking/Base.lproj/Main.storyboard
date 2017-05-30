@@ -1,26 +1,159 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="knO-AX-sgA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--登入-->
+        <scene sceneID="R0s-JW-w6W">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="登入" id="Mij-gr-uY6" customClass="LoginRequestViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="Q0F-SD-Ye6"/>
+                        <viewControllerLayoutGuide type="bottom" id="s8e-pJ-lfV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="UPh-Qh-5Um">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <textView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="歡迎使用 Facebook 登入" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOv-td-Kr8">
+                                <rect key="frame" x="36" y="84" width="303" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWy-Rv-p6f">
+                                <rect key="frame" x="117.5" y="617" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="Dtb-zz-7cq"/>
+                                    <constraint firstAttribute="height" constant="30" id="S6z-wH-9cW"/>
+                                </constraints>
+                                <state key="normal" title="用 Facebook 登入"/>
+                                <connections>
+                                    <action selector="loginButtonAction:" destination="Mij-gr-uY6" eventType="touchUpInside" id="sMZ-93-S5a"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IEf-h8-Uu0">
+                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mZM-NR-9dw"/>
+                                    <constraint firstAttribute="width" constant="30" id="mzk-Ij-jXi"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iWy-Rv-p6f" firstAttribute="centerX" secondItem="UPh-Qh-5Um" secondAttribute="centerX" id="0ZV-zu-phh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YOv-td-Kr8" secondAttribute="trailing" constant="20" id="CES-st-PQJ"/>
+                            <constraint firstItem="s8e-pJ-lfV" firstAttribute="top" secondItem="IEf-h8-Uu0" secondAttribute="bottom" constant="20" id="IO5-A8-1Cb"/>
+                            <constraint firstItem="s8e-pJ-lfV" firstAttribute="top" secondItem="iWy-Rv-p6f" secondAttribute="bottom" constant="20" id="NMl-od-yYK"/>
+                            <constraint firstItem="IEf-h8-Uu0" firstAttribute="centerX" secondItem="UPh-Qh-5Um" secondAttribute="centerX" id="OJm-ZJ-UMH"/>
+                            <constraint firstItem="YOv-td-Kr8" firstAttribute="top" secondItem="Q0F-SD-Ye6" secondAttribute="bottom" constant="20" id="Pie-kN-F1L"/>
+                            <constraint firstItem="YOv-td-Kr8" firstAttribute="leading" secondItem="UPh-Qh-5Um" secondAttribute="leadingMargin" constant="20" id="ndy-LS-Wcu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="IEf-h8-Uu0" id="7dp-Ks-SR6"/>
+                        <outlet property="loginButton" destination="iWy-Rv-p6f" id="RBs-Ev-496"/>
+                        <outlet property="loginDescription" destination="YOv-td-Kr8" id="Pe0-NT-Kwy"/>
+                        <segue destination="rrC-Ta-QTy" kind="unwind" identifier="LoggedIn" unwindAction="loggedInSegue:" id="XJP-tU-lPH"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aly-JZ-it6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rrC-Ta-QTy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+            <point key="canvasLocation" x="-215.19999999999999" y="-775.86206896551732"/>
+        </scene>
+        <!--預約-->
+        <scene sceneID="MSe-Lq-80a">
+            <objects>
+                <viewController title="預約" id="mEj-DU-u1a" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eJr-PU-nAV"/>
+                        <viewControllerLayoutGuide type="bottom" id="zOJ-0Z-LcO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l6W-Ku-GGq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="預約" id="7wm-o0-WST"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0jp-bc-6VE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="766"/>
+        </scene>
+        <!--地圖-->
+        <scene sceneID="rCe-oV-lMW">
+            <objects>
+                <viewController title="地圖" id="VhI-Rn-Wvy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ppU-ef-sfd"/>
+                        <viewControllerLayoutGuide type="bottom" id="suc-rX-JrI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qaY-PK-JXp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ome-x7-blz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="suc-rX-JrI" firstAttribute="top" secondItem="Ome-x7-blz" secondAttribute="bottom" id="geP-Pb-Ke9"/>
+                            <constraint firstAttribute="trailing" secondItem="Ome-x7-blz" secondAttribute="trailing" id="iXz-vu-tJY"/>
+                            <constraint firstItem="Ome-x7-blz" firstAttribute="top" secondItem="ppU-ef-sfd" secondAttribute="bottom" id="jJZ-ug-B9w"/>
+                            <constraint firstItem="Ome-x7-blz" firstAttribute="leading" secondItem="qaY-PK-JXp" secondAttribute="leading" id="wql-1F-ouu"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="地圖" id="BHc-fO-Tzi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gh0-Db-8Qk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.6" y="-122.78860569715144"/>
+        </scene>
+        <!--Login Flow Navigation Controller Delegate-->
+        <scene sceneID="pZr-Lr-RbL">
+            <objects>
+                <navigationController id="knO-AX-sgA" customClass="PKLoginFlowNavigationControllerDelegate" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MNt-Be-YIN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Mij-gr-uY6" kind="show" identifier="LoginRequest" id="yco-2R-A51"/>
+                        <segue destination="bcR-t7-G9d" kind="show" identifier="MainView" id="UDR-w6-TM7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="peP-SW-ryx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1153" y="-67"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MxH-CH-DFL">
+            <objects>
+                <tabBarController id="bcR-t7-G9d" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YUZ-i9-7th"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="9WT-wj-NBy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="VhI-Rn-Wvy" kind="relationship" relationship="viewControllers" id="rfZ-df-eso"/>
+                        <segue destination="mEj-DU-u1a" kind="relationship" relationship="viewControllers" id="Ql3-VG-um6"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDU-AZ-bn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="285"/>
         </scene>
     </scenes>
 </document>
