@@ -83,16 +83,73 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="預約" id="7wm-o0-WST"/>
+                    <tabBarItem key="tabBarItem" title="預約" image="TabBarItems/Reservations" selectedImage="TabBarItems/Reservations" id="7wm-o0-WST"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jp-bc-6VE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="766"/>
+            <point key="canvasLocation" x="1022" y="541"/>
+        </scene>
+        <!--發票-->
+        <scene sceneID="7DK-4f-t1h">
+            <objects>
+                <viewController id="g3o-eR-VRj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1hr-44-oTq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gh8-tD-LgN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VyA-3K-O7W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="發票" image="TabBarItems/Invoice" selectedImage="TabBarItems/Invoice" id="4hy-Gg-r7I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yfg-fU-Ymj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1167" y="1232"/>
+        </scene>
+        <!--歷史紀錄-->
+        <scene sceneID="OBD-WU-imB">
+            <objects>
+                <viewController id="vqv-Mc-Mpd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kct-VK-hZy"/>
+                        <viewControllerLayoutGuide type="bottom" id="2xi-Ky-Pf5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bU1-ZS-nFM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="歷史紀錄" image="TabBarItems/History" selectedImage="TabBarItems/History" id="9QZ-tj-TME"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbe-j7-g46" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-121" y="1227"/>
+        </scene>
+        <!--車輛位置-->
+        <scene sceneID="KQE-3K-5GH">
+            <objects>
+                <viewController id="7df-kd-GzO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9B5-pd-Hwm"/>
+                        <viewControllerLayoutGuide type="bottom" id="pVw-Dw-d3z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lKG-QV-QPj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="車輛位置" image="TabBarItems/Parking-Alt" selectedImage="TabBarItems/Parking-Alt" id="xs4-We-MSj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gx5-YV-ziM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="1217"/>
         </scene>
         <!--地圖-->
         <scene sceneID="rCe-oV-lMW">
             <objects>
-                <viewController title="地圖" id="VhI-Rn-Wvy" sceneMemberID="viewController">
+                <viewController title="地圖" id="VhI-Rn-Wvy" customClass="PKMapViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ppU-ef-sfd"/>
                         <viewControllerLayoutGuide type="bottom" id="suc-rX-JrI"/>
@@ -103,17 +160,32 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ome-x7-blz">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="VhI-Rn-Wvy" id="3dr-X7-mZc"/>
+                                </connections>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOD-Ls-iVW">
+                                <rect key="frame" x="367" y="610" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" red="0.48580266497461932" green="0.48580266497461932" blue="0.48580266497461932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="suc-rX-JrI" firstAttribute="top" secondItem="hOD-Ls-iVW" secondAttribute="bottom" constant="8" id="d87-13-wBu"/>
                             <constraint firstItem="suc-rX-JrI" firstAttribute="top" secondItem="Ome-x7-blz" secondAttribute="bottom" id="geP-Pb-Ke9"/>
                             <constraint firstAttribute="trailing" secondItem="Ome-x7-blz" secondAttribute="trailing" id="iXz-vu-tJY"/>
                             <constraint firstItem="Ome-x7-blz" firstAttribute="top" secondItem="ppU-ef-sfd" secondAttribute="bottom" id="jJZ-ug-B9w"/>
+                            <constraint firstItem="hOD-Ls-iVW" firstAttribute="trailing" secondItem="qaY-PK-JXp" secondAttribute="trailingMargin" constant="8" id="pc2-LC-YDz"/>
                             <constraint firstItem="Ome-x7-blz" firstAttribute="leading" secondItem="qaY-PK-JXp" secondAttribute="leading" id="wql-1F-ouu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="地圖" id="BHc-fO-Tzi"/>
+                    <tabBarItem key="tabBarItem" title="地圖" image="TabBarItems/Map" selectedImage="TabBarItems/Map" id="BHc-fO-Tzi"/>
+                    <connections>
+                        <outlet property="map" destination="Ome-x7-blz" id="Cca-vW-JSf"/>
+                        <outlet property="notice" destination="hOD-Ls-iVW" id="FDW-dX-0vR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gh0-Db-8Qk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,6 +221,9 @@
                     <connections>
                         <segue destination="VhI-Rn-Wvy" kind="relationship" relationship="viewControllers" id="rfZ-df-eso"/>
                         <segue destination="mEj-DU-u1a" kind="relationship" relationship="viewControllers" id="Ql3-VG-um6"/>
+                        <segue destination="7df-kd-GzO" kind="relationship" relationship="viewControllers" id="bpw-Qb-ms2"/>
+                        <segue destination="vqv-Mc-Mpd" kind="relationship" relationship="viewControllers" id="957-Qp-vvu"/>
+                        <segue destination="g3o-eR-VRj" kind="relationship" relationship="viewControllers" id="SJB-iL-wHf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nDU-AZ-bn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,4 +231,11 @@
             <point key="canvasLocation" x="-103" y="285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TabBarItems/History" width="25" height="25"/>
+        <image name="TabBarItems/Invoice" width="25" height="25"/>
+        <image name="TabBarItems/Map" width="25" height="25"/>
+        <image name="TabBarItems/Parking-Alt" width="25" height="25"/>
+        <image name="TabBarItems/Reservations" width="25" height="25"/>
+    </resources>
 </document>

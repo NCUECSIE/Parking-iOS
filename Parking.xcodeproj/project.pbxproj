@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		344365441EDF7C7A001A2151 /* PKSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365431EDF7C7A001A2151 /* PKSpace.swift */; };
+		344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365451EDF824A001A2151 /* PKMapViewController.swift */; };
 		38FB1A661EDD77AC00343560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FB1A651EDD77AC00343560 /* AppDelegate.swift */; };
 		38FB1A6B1EDD77AC00343560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FB1A691EDD77AC00343560 /* Main.storyboard */; };
 		38FB1A6D1EDD77AC00343560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FB1A6C1EDD77AC00343560 /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		2A2BFAA3A278F32A563BDD23 /* Pods-ParkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingUITests/Pods-ParkingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		33C3E2275EB634B6ADBCC834 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		344365431EDF7C7A001A2151 /* PKSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKSpace.swift; sourceTree = "<group>"; };
+		344365451EDF824A001A2151 /* PKMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKMapViewController.swift; path = ViewControllers/PKMapViewController.swift; sourceTree = "<group>"; };
 		38FB1A621EDD77AC00343560 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FB1A651EDD77AC00343560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FB1A6A1EDD77AC00343560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 			children = (
 				38FB1BD21EDD9CA700343560 /* LoginRequestViewController.swift */,
 				38FB1BD71EDD9F7B00343560 /* PKLoginFlowNavigationControllerDelegate.swift */,
+				344365451EDF824A001A2151 /* PKMapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				38FB1BDC1EDDA21400343560 /* PKService.swift */,
+				344365431EDF7C7A001A2151 /* PKSpace.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -378,7 +384,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		492E2BD7EE96033C80249E08 /* [CP] Embed Pods Frameworks */ = {
@@ -408,7 +414,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		56DFDC8107CF9ED478697FD8 /* [CP] Embed Pods Frameworks */ = {
@@ -438,7 +444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7B266B27BC706E708CE809D9 /* [CP] Copy Pods Resources */ = {
@@ -515,7 +521,9 @@
 				38FB1BD61EDD9F1B00343560 /* PKKeychain.swift in Sources */,
 				38FB1BD81EDD9F7B00343560 /* PKLoginFlowNavigationControllerDelegate.swift in Sources */,
 				38FB1BDF1EDDAE7500343560 /* Result.swift in Sources */,
+				344365441EDF7C7A001A2151 /* PKSpace.swift in Sources */,
 				38FB1BDD1EDDA21400343560 /* PKService.swift in Sources */,
+				344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */,
 				38FB1A661EDD77AC00343560 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

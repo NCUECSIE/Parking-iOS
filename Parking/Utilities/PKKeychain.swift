@@ -15,7 +15,7 @@ class PKKeychain {
             kSecClass as String: kSecClassGenericPassword as String,
             kSecAttrAccount as String: key,
             kSecValueData as String: data
-            ] as [String: Any]
+        ] as [String: Any]
         
         SecItemDelete((query as CFDictionary))
         let result = SecItemAdd(query as CFDictionary, nil)
@@ -32,7 +32,7 @@ class PKKeychain {
             kSecAttrAccount as String: key,
             kSecReturnData as String: kCFBooleanTrue,
             kSecMatchLimit as String: kSecMatchLimitOne
-            ] as [String: Any]
+        ] as [String: Any]
         
         var dataTypeRef: AnyObject? = nil
         let status: OSStatus = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
@@ -44,5 +44,14 @@ class PKKeychain {
             }
         }
         return nil
+    }
+    class func delete(key: String) {
+        let query = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: key
+        ] as [String: Any]
+        
+        let status = SecItemDelete(query as CFDictionary)
+        
     }
 }

@@ -1,4 +1,5 @@
 import UIKit
+import Dispatch
 
 class LoginRequestViewController: UIViewController {
     @IBOutlet weak var loginDescription: UITextView!
@@ -12,14 +13,23 @@ class LoginRequestViewController: UIViewController {
         activityIndicator.startAnimating()
         loginButton.isHidden = true
         
-        AppDelegate.service.login { result in
-            self.activityIndicator.stopAnimating()
-            self.loginButton.isHidden = false
+        AppDelegate.service.login { [unowned self] result in
             switch result {
             case .success():
                 self.performSegue(withIdentifier: PKSegueIdentifiers.loggedIn.rawValue, sender: nil)
-            case .error(let message):
-                print(message ?? "")
+            case .error(_):
+                let alertController = UIAlertController(title: "無法登入", message: "請在設定內新增您的 Facebook 帳號，並在畫面上按下允許按鈕。", preferredStyle: .alert)
+                let action = UIAlertAction(title: "瞭解", style: UIAlertActionStyle.default)
+                alertController.addAction(action)
+                
+                DispatchQueue.main.async {
+                    self.present(alertController, animated: true) { _ in
+                        DispatchQueue.main.async(group: nil, qos: DispatchQoS.userInteractive, flags: [.enforceQoS]) {
+                            self.activityIndicator.stopAnimating()
+                            self.loginButton.isHidden = false
+                        }
+                    }
+                }
             }
         }
     }

@@ -12,6 +12,7 @@ class PKLoginFlowNavigationControllerDelegate: UINavigationController {
     }
     
     @IBAction func loggedIn(segue: UIStoryboardSegue) {
-        self.performSegue(withIdentifier: PKSegueIdentifiers.mainView.rawValue, sender: nil)
+        performSegue(withIdentifier: PKSegueIdentifiers.mainView.rawValue, sender: nil)
+        setViewControllers([viewControllers[1]], animated: true)
     }
 }

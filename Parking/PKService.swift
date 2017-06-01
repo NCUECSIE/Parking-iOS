@@ -1,7 +1,9 @@
 import Foundation
 import Alamofire
 import Accounts
+import MapKit
 import SwiftyJSON
+import Dispatch
 
 class PKService {
     var loggedIn: Bool {
@@ -38,7 +40,7 @@ class PKService {
                 if let accounts = store.accounts(with: facebook) as? [ACAccount] {
                     if accounts.count > 0 {
                         let facebookAccount = accounts[0]
-                        let token = facebookAccount.credential.oauthToken
+                        let token = facebookAccount.credential.oauthToken!
                         
                         // PKServer
                         let url = URL(string: "auth/facebook", relativeTo: self.rootEndpoint)!
@@ -61,5 +63,22 @@ class PKService {
                 completionHandler(.error("fatal"))
             }
         })
+    }
+    
+    func spaces(in rect: MKCoordinateRegion, completionHandler: (Result<[PKSpace]>) -> Void) {
+        let lowerLatitude = floor((rect.center.latitude - rect.span.latitudeDelta) * 100.0) / 100.0
+        let upperLatitude = floor((rect.center.latitude - rect.span.latitudeDelta) * 100.0) / 100.0
+        let lowerLongitude = floor((rect.center.longitude - rect.span.longitudeDelta) * 100.0) / 100.0
+        let upperLongitude = floor((rect.center.longitude - rect.span.longitudeDelta) * 100.0) / 100.0
+        
+        let spec = String(format: "%.2f-%.2f:%.2f-%.2f", lowerLatitude, upperLatitude, lowerLongitude, upperLongitude)
+        
+        
+    }
+    
+    func makeRequest(on path: String, with queries: [String: String]) -> URLRequest {
+        
+        let url = URL(string: path, relativeTo: self.rootEndpoint)!
+        return URLRequest(url: url)
     }
 }
