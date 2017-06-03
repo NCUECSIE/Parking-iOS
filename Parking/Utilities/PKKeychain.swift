@@ -51,7 +51,6 @@ class PKKeychain {
             kSecAttrAccount as String: key
         ] as [String: Any]
         
-        let status = SecItemDelete(query as CFDictionary)
-        
+        let _ = SecItemDelete(query as CFDictionary)
     }
 }

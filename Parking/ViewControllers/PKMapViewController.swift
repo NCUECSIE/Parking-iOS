@@ -13,7 +13,7 @@ class PKMapViewController: UIViewController, MKMapViewDelegate {
         map.showsUserLocation = true
         map.showsPointsOfInterest = true
         
-        let testRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 24.055, longitude: 120.545),
+        let testRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 24.06, longitude: 120.545),
                                             span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
         map.setRegion(testRegion, animated: false)
     }

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>endpoint</key>
-	<string>http://192.168.1.8:8080/</string>
+	<string>http://10.0.0.50:8080/</string>
 	<key>facebookAppId</key>
 	<string>203182736857316</string>
 </dict>
