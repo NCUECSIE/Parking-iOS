@@ -17,8 +17,8 @@ class LoginRequestViewController: UIViewController {
             switch result {
             case .success():
                 self.performSegue(withIdentifier: PKSegueIdentifiers.loggedIn.rawValue, sender: nil)
-            case .error(_):
-                let alertController = UIAlertController(title: "無法登入", message: "請在設定內新增您的 Facebook 帳號，並在畫面上按下允許按鈕。", preferredStyle: .alert)
+            case .error(let message):
+                let alertController = UIAlertController(title: "無法登入", message: message ?? "沒有訊息", preferredStyle: .alert)
                 let action = UIAlertAction(title: "瞭解", style: UIAlertActionStyle.default)
                 alertController.addAction(action)
                 

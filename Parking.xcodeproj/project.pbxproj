@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343560A31EDFC4E700579F1C /* PKSpaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343560A21EDFC4E700579F1C /* PKSpaceViewController.swift */; };
 		344365441EDF7C7A001A2151 /* PKSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365431EDF7C7A001A2151 /* PKSpace.swift */; };
 		344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365451EDF824A001A2151 /* PKMapViewController.swift */; };
+		3457C8361EE2E82300CA73CE /* ReservationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457C8351EE2E82300CA73CE /* ReservationsTableViewController.swift */; };
 		38FB1A661EDD77AC00343560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FB1A651EDD77AC00343560 /* AppDelegate.swift */; };
 		38FB1A6B1EDD77AC00343560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FB1A691EDD77AC00343560 /* Main.storyboard */; };
 		38FB1A6D1EDD77AC00343560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FB1A6C1EDD77AC00343560 /* Assets.xcassets */; };
@@ -50,8 +52,10 @@
 /* Begin PBXFileReference section */
 		2A2BFAA3A278F32A563BDD23 /* Pods-ParkingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParkingUITests/Pods-ParkingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		33C3E2275EB634B6ADBCC834 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		343560A21EDFC4E700579F1C /* PKSpaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKSpaceViewController.swift; path = ViewControllers/PKSpaceViewController.swift; sourceTree = "<group>"; };
 		344365431EDF7C7A001A2151 /* PKSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKSpace.swift; sourceTree = "<group>"; };
 		344365451EDF824A001A2151 /* PKMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKMapViewController.swift; path = ViewControllers/PKMapViewController.swift; sourceTree = "<group>"; };
+		3457C8351EE2E82300CA73CE /* ReservationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationsTableViewController.swift; sourceTree = "<group>"; };
 		38FB1A621EDD77AC00343560 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FB1A651EDD77AC00343560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FB1A6A1EDD77AC00343560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				38FB1BD21EDD9CA700343560 /* LoginRequestViewController.swift */,
 				38FB1BD71EDD9F7B00343560 /* PKLoginFlowNavigationControllerDelegate.swift */,
 				344365451EDF824A001A2151 /* PKMapViewController.swift */,
+				343560A21EDFC4E700579F1C /* PKSpaceViewController.swift */,
+				3457C8351EE2E82300CA73CE /* ReservationsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -516,8 +522,10 @@
 			files = (
 				38FB1BE31EDDC3A800343560 /* CustomAnnotationaView.swift in Sources */,
 				38FB1BDA1EDDA1DD00343560 /* SegueIdentifiers.swift in Sources */,
+				3457C8361EE2E82300CA73CE /* ReservationsTableViewController.swift in Sources */,
 				38FB1BE51EDDC41E00343560 /* CustomAnnotation.swift in Sources */,
 				38FB1BD31EDD9CA700343560 /* LoginRequestViewController.swift in Sources */,
+				343560A31EDFC4E700579F1C /* PKSpaceViewController.swift in Sources */,
 				38FB1BD61EDD9F1B00343560 /* PKKeychain.swift in Sources */,
 				38FB1BD81EDD9F7B00343560 /* PKLoginFlowNavigationControllerDelegate.swift in Sources */,
 				38FB1BDF1EDDAE7500343560 /* Result.swift in Sources */,

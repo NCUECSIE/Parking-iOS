@@ -34,8 +34,8 @@ class PKService {
         let facebook = store.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierFacebook)
         
         store.requestAccessToAccounts(with: facebook, options: [ACFacebookAppIdKey: appId, ACFacebookPermissionsKey: []], completion: { granted, error in
-            if let error = error {
-                completionHandler(.error(error.localizedDescription))
+            if let _ = error {
+                completionHandler(.error("無法取得 Facebook 資訊，請確認是否有在系統設定中設定 Facebook 帳號。"))
             } else if granted {
                 if let accounts = store.accounts(with: facebook) as? [ACAccount] {
                     if accounts.count > 0 {
@@ -51,7 +51,7 @@ class PKService {
                         
                         Alamofire.request(request).responseString(queue: nil) { data in
                             if let _ = data.error {
-                                completionHandler(.error("PKServer 錯誤"))
+                                completionHandler(.error("Parking 系統錯誤"))
                             } else if let data = data.result.value {
                                 _ = PKKeychain.set(key: "pkserver", value: data)
                                 completionHandler(.success())
@@ -60,25 +60,96 @@ class PKService {
                     }
                 }
             } else {
-                completionHandler(.error("fatal"))
+                completionHandler(.error("未知的錯誤"))
             }
         })
     }
     
-    func spaces(in rect: MKCoordinateRegion, completionHandler: (Result<[PKSpace]>) -> Void) {
+    func spaces(in rect: MKCoordinateRegion, completionHandler: @escaping (Result<[PKSpace]>) -> Void) {
         let lowerLatitude = floor((rect.center.latitude - rect.span.latitudeDelta) * 100.0) / 100.0
-        let upperLatitude = floor((rect.center.latitude - rect.span.latitudeDelta) * 100.0) / 100.0
+        let upperLatitude = ceil((rect.center.latitude + rect.span.latitudeDelta) * 100.0) / 100.0
         let lowerLongitude = floor((rect.center.longitude - rect.span.longitudeDelta) * 100.0) / 100.0
-        let upperLongitude = floor((rect.center.longitude - rect.span.longitudeDelta) * 100.0) / 100.0
+        let upperLongitude = ceil((rect.center.longitude + rect.span.longitudeDelta) * 100.0) / 100.0
         
         let spec = String(format: "%.2f-%.2f:%.2f-%.2f", lowerLatitude, upperLatitude, lowerLongitude, upperLongitude)
+        var request = makeRequest(on: "/spaces", with: ["grids": spec])
+        request.httpMethod = "GET"
         
-        
+        Alamofire.request(request).PKResponse { response in
+            if case let .error(code, error) = response {
+                if code == 11 {
+                    completionHandler(.error("請放大地圖到理想位置，應用程式無法載入此區域的資料。"))
+                } else {
+                    completionHandler(.error(error))
+                }
+            } else if case let .success(json) = response {
+                let result = json.arrayValue.map { object -> PKSpace in
+                    PKSpace(parked: object["parked"].boolValue,
+                            latitude: object["location"]["latitude"].doubleValue,
+                            longitude: object["location"]["longitude"].doubleValue,
+                            _id: object["_id"].stringValue,
+                            fee: nil, providerId: nil, markings: nil)
+                }
+                completionHandler(.success(result))
+            }
+        }
     }
     
-    func makeRequest(on path: String, with queries: [String: String]) -> URLRequest {
-        
+    func space(id: String, completionHandler: @escaping (Result<PKSpace>) -> Void ) {
+        var request = makeRequest(on: "/spaces/\(id)")
+        request.httpMethod = "GET"
+        Alamofire.request(request).PKResponse { response in
+            if case let .error(_, error) = response {
+                completionHandler(.error(error))
+            } else if case let .success(json) = response {
+                let result = PKSpace(parked: json["parked"].boolValue,
+                                     latitude: json["location"]["latitude"].doubleValue,
+                                     longitude: json["location"]["longitude"].doubleValue,
+                                     _id: json["_id"].stringValue,
+                                     fee: Fee(unitTime: json["fee"]["unitTime"].doubleValue, charge: json["fee"]["charge"].doubleValue),
+                                     providerId: json["providerId"].stringValue,
+                                     markings: json["markings"].stringValue)
+                
+                completionHandler(.success(result))
+            }
+        }
+    }
+    
+    func makeRequest(on path: String, with queries: [String: String] = [:]) -> URLRequest {
         let url = URL(string: path, relativeTo: self.rootEndpoint)!
-        return URLRequest(url: url)
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+        components.queryItems = queries.map { key, value in URLQueryItem(name: key, value: value) }
+        var request = URLRequest(url: try! components.asURL())
+        request.addValue(token!, forHTTPHeaderField: "token")
+        
+        return request
+    }
+}
+
+enum APIResult {
+    case success(JSON)
+    case error(Int, String)
+}
+extension DataRequest {
+    @discardableResult
+    func PKResponse(completionHandler: @escaping (APIResult) -> Void) -> Self {
+        self.responseData { response in
+            if let error = response.error {
+                completionHandler(.error(-1, "network error: " + error.localizedDescription))
+                return
+            } else if let data = response.value {
+                let json = JSON(data: data)
+                if let error = json["error"].string,
+                    let code = json["code"].int {
+                    completionHandler(.error(code, error))
+                } else {
+                    completionHandler(.success(json))
+                }
+            } else {
+                completionHandler(.error(-1, "unknown error"))
+            }
+        }
+        
+        return self
     }
 }
