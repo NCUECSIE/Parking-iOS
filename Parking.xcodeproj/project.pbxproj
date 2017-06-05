@@ -12,6 +12,7 @@
 		342F1F661EE54A4300CCCA2E /* RecordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F1F651EE54A4300CCCA2E /* RecordsTableViewController.swift */; };
 		342F1F6B1EE54D8300CCCA2E /* PKRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F1F6A1EE54D8300CCCA2E /* PKRecord.swift */; };
 		342F1F6D1EE56D9100CCCA2E /* InternalSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F1F6C1EE56D9100CCCA2E /* InternalSettingsViewController.swift */; };
+		342F1F701EE5719300CCCA2E /* PKGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F1F6F1EE5719300CCCA2E /* PKGeocoder.swift */; };
 		343560A31EDFC4E700579F1C /* PKSpaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343560A21EDFC4E700579F1C /* PKSpaceViewController.swift */; };
 		344365441EDF7C7A001A2151 /* PKSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365431EDF7C7A001A2151 /* PKSpace.swift */; };
 		344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365451EDF824A001A2151 /* PKMapViewController.swift */; };
@@ -72,6 +73,7 @@
 		342F1F651EE54A4300CCCA2E /* RecordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordsTableViewController.swift; path = ViewControllers/RecordsTableViewController.swift; sourceTree = "<group>"; };
 		342F1F6A1EE54D8300CCCA2E /* PKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKRecord.swift; path = Models/PKRecord.swift; sourceTree = "<group>"; };
 		342F1F6C1EE56D9100CCCA2E /* InternalSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternalSettingsViewController.swift; path = ViewControllers/InternalSettingsViewController.swift; sourceTree = "<group>"; };
+		342F1F6F1EE5719300CCCA2E /* PKGeocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKGeocoder.swift; path = Utilities/PKGeocoder.swift; sourceTree = "<group>"; };
 		343560A21EDFC4E700579F1C /* PKSpaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKSpaceViewController.swift; path = ViewControllers/PKSpaceViewController.swift; sourceTree = "<group>"; };
 		344365431EDF7C7A001A2151 /* PKSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKSpace.swift; sourceTree = "<group>"; };
 		344365451EDF824A001A2151 /* PKMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKMapViewController.swift; path = ViewControllers/PKMapViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				38FB1BD51EDD9F1B00343560 /* PKKeychain.swift */,
 				38FB1BD91EDDA1DD00343560 /* SegueIdentifiers.swift */,
 				38FB1BDE1EDDAE7500343560 /* Result.swift */,
+				342F1F6F1EE5719300CCCA2E /* PKGeocoder.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				34992C8F1EE4106600F42852 /* PKContactInformation.swift in Sources */,
 				344365441EDF7C7A001A2151 /* PKSpace.swift in Sources */,
 				34992C8B1EE316C600F42852 /* Extensions.swift in Sources */,
+				342F1F701EE5719300CCCA2E /* PKGeocoder.swift in Sources */,
 				34992C8D1EE4103500F42852 /* PKProvider.swift in Sources */,
 				38FB1BDD1EDDA21400343560 /* PKService.swift in Sources */,
 				344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */,
@@ -782,6 +786,7 @@
 				CODE_SIGN_ENTITLEMENTS = Parking/Parking.entitlements;
 				DEVELOPMENT_TEAM = HLB4G4QBTU;
 				INFOPLIST_FILE = Parking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.idv.shanehsu.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -797,6 +802,7 @@
 				CODE_SIGN_ENTITLEMENTS = Parking/Parking.entitlements;
 				DEVELOPMENT_TEAM = HLB4G4QBTU;
 				INFOPLIST_FILE = Parking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.idv.shanehsu.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";

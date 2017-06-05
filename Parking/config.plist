@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>PKAccessToken</key>
-	<string>k3HquZuZngTaWz37/ETwfWUJcrg+OQNw1d7QTSZxB8U=</string>
 	<key>endpoint</key>
 	<string>http://changhua.shanehsu.idv.tw:10000/</string>
 	<key>facebookAppId</key>

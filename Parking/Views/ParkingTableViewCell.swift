@@ -22,6 +22,9 @@ class ParkingTableViewCell: UITableViewCell {
                 addressLabel.text = "計算中..."
                 beginLabel.text = dateFormatter.string(from: parking.begin)
                 durationLabel.text = durationFormatter.string(from: Date().timeIntervalSince(parking.begin))
+                
+                // Queue Geocoding...
+                
             } else {
                 plateLabel.text = ""
                 addressLabel.text = ""
@@ -50,5 +53,11 @@ class ParkingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    // MARK: Geocoding
+    var geocodingIndex: Int?
+    func stopGeocoding() {
+        
     }
 }
