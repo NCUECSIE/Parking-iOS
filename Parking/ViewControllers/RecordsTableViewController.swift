@@ -9,9 +9,9 @@ class RecordsTableViewController: UIViewController, UITableViewDataSource, UITab
         control.addTarget(self, action: #selector(reloadRecords), for: .valueChanged)
         return control
     }()
-    lazy var geocoder: CLGeocoder = {
-        return CLGeocoder()
-    }()
+//    lazy var geocoder: CLGeocoder = {
+//        return CLGeocoder()
+//    }()
     var records: [PKRecord] = []
     
     func reloadRecords() {
@@ -55,16 +55,16 @@ class RecordsTableViewController: UIViewController, UITableViewDataSource, UITab
         let location = CLLocation(latitude: record.space.location.latitude, longitude: record.space.location.longitude)
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell") as? RecordTableViewCell {
             cell.record = record
-            geocoder.reverseGeocodeLocation(location) { results, error in
-                DispatchQueue.main.async {
-                    if (results?.count ?? 0) > 0 {
-                        let result = results!.last!
-                        cell.placemark = result
-                    } else {
-                        cell.placemark = nil
-                    }
-                }
-            }
+//            geocoder.reverseGeocodeLocation(location) { results, error in
+//                DispatchQueue.main.async {
+//                    if (results?.count ?? 0) > 0 {
+//                        let result = results!.last!
+//                        cell.placemark = result
+//                    } else {
+//                        cell.placemark = nil
+//                    }
+//                }
+//            }
             
             return cell
         } else {

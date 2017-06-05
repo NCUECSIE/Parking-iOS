@@ -4,9 +4,9 @@ import CoreLocation
 class ReservationsTableViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var geocoder: CLGeocoder = {
-        return CLGeocoder()
-    }()
+//    lazy var geocoder: CLGeocoder = {
+//        return CLGeocoder()
+//    }()
     lazy var refreshControl: UIRefreshControl = {
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(reloadReservation), for: .valueChanged)
@@ -44,16 +44,16 @@ class ReservationsTableViewController: UIViewController, UITableViewDataSource {
         let location = CLLocation(latitude: reservation.space.location.latitude, longitude: reservation.space.location.longitude)
         if let view = tableView.dequeueReusableCell(withIdentifier: "ReservationCell") as? ReservationTableViewCell {
             view.reservation = reservation
-            geocoder.reverseGeocodeLocation(location) { results, error in
-                DispatchQueue.main.async {
-                    if (results?.count ?? 0) > 0 {
-                        let result = results!.last!
-                        view.placemark = result
-                    } else {
-                        view.placemark = nil
-                    }
-                }
-            }
+//            geocoder.reverseGeocodeLocation(location) { results, error in
+//                DispatchQueue.main.async {
+//                    if (results?.count ?? 0) > 0 {
+//                        let result = results!.last!
+//                        view.placemark = result
+//                    } else {
+//                        view.placemark = nil
+//                    }
+//                }
+//            }
             
             return view
         } else {

@@ -7,29 +7,27 @@ class ParkingTableViewCell: UITableViewCell {
     @IBOutlet weak var beginLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     
+    var codingId: Int? = nil
     var parking: PKParking! {
         didSet {
-            if parking != nil {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateStyle = .medium
-                dateFormatter.timeStyle = .medium
-                dateFormatter.doesRelativeDateFormatting = true
-                
-                let durationFormatter = DateComponentsFormatter()
-                durationFormatter.unitsStyle = .full
-                
-                plateLabel.text = parking.plate
-                addressLabel.text = "計算中..."
-                beginLabel.text = dateFormatter.string(from: parking.begin)
-                durationLabel.text = durationFormatter.string(from: Date().timeIntervalSince(parking.begin))
-                
-                // Queue Geocoding...
-                
-            } else {
-                plateLabel.text = ""
-                addressLabel.text = ""
-                beginLabel.text = ""
-                durationLabel.text = ""
+            if let codingId = codingId {
+                PKGeocoder.shared.cancel(index: codingId)
+            }
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .medium
+            dateFormatter.doesRelativeDateFormatting = true
+            
+            let durationFormatter = DateComponentsFormatter()
+            durationFormatter.unitsStyle = .full
+            
+            plateLabel.text = parking.plate
+            addressLabel.text = "計算中..."
+            beginLabel.text = dateFormatter.string(from: parking.begin)
+            durationLabel.text = durationFormatter.string(from: Date().timeIntervalSince(parking.begin))
+            
+            codingId = PKGeocoder.shared.code(parking.space.location) { result in
+                self.placemark = result
             }
         }
     }
@@ -53,11 +51,5 @@ class ParkingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    // MARK: Geocoding
-    var geocodingIndex: Int?
-    func stopGeocoding() {
-        
     }
 }

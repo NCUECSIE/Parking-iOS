@@ -15,8 +15,13 @@ class RecordTableViewCell: UITableViewCell {
     @IBOutlet weak var timeAndDurationLabel: UILabel!
     @IBOutlet weak var chargeLabel: UILabel!
     
+    var codingId: Int? = nil
     var record: PKRecord! {
         didSet {
+            if let codingId = codingId {
+                PKGeocoder.shared.cancel(index: codingId)
+            }
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .medium
             dateFormatter.timeStyle = .medium
@@ -32,6 +37,10 @@ class RecordTableViewCell: UITableViewCell {
             addressLabel.text = "計算中..."
             timeAndDurationLabel.text = "\(timeString)｜\(durationString)"
             chargeLabel.text = "\(record.charge) 元新台幣"
+            
+            codingId = PKGeocoder.shared.code(record.space.location) { result in
+                self.placemark = result
+            }
         }
     }
     var placemark: CLPlacemark? {

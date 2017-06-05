@@ -9,9 +9,9 @@ class ParkingTableViewController: UIViewController, UITableViewDataSource, UITab
         control.addTarget(self, action: #selector(loadParkings), for: .valueChanged)
         return control
     }()
-    lazy var geocoder: CLGeocoder = {
-        return CLGeocoder()
-    }()
+//    lazy var geocoder: CLGeocoder = {
+//        return CLGeocoder()
+//    }()
     var parkings: [PKParking] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,16 +23,16 @@ class ParkingTableViewController: UIViewController, UITableViewDataSource, UITab
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ParkingCell") as? ParkingTableViewCell {
             cell.parking = parking
             
-            geocoder.reverseGeocodeLocation(location) { results, error in
-                DispatchQueue.main.async {
-                    if (results?.count ?? 0) > 0 {
-                        let result = results!.last!
-                        cell.placemark = result
-                    } else {
-                        cell.placemark = nil
-                    }
-                }
-            }
+//            geocoder.reverseGeocodeLocation(location) { results, error in
+//                DispatchQueue.main.async {
+//                    if (results?.count ?? 0) > 0 {
+//                        let result = results!.last!
+//                        cell.placemark = result
+//                    } else {
+//                        cell.placemark = nil
+//                    }
+//                }
+//            }
 
             return cell
         } else {

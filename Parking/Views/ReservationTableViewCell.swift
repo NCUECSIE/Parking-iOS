@@ -5,8 +5,13 @@ import UIKit
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var timeLable: UILabel!
     
+    var codingId: Int? = nil
     var reservation: PKReservation! = nil {
         didSet {
+            if let codingId = codingId {
+                PKGeocoder.shared.cancel(index: codingId)
+            }
+            
             let timeFormatter = DateFormatter()
             timeFormatter.doesRelativeDateFormatting = true
             timeFormatter.locale = Locale.current
@@ -15,6 +20,10 @@ import UIKit
             
             timeLable.text = timeFormatter.string(from: reservation!.begin)
             locationLabel.text = "計算位置中..."
+            
+            codingId = PKGeocoder.shared.code(reservation.space.location) { result in
+                self.placemark = result
+            }
         }
     }
     var placemark: CLPlacemark? = nil {

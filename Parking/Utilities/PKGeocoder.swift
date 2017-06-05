@@ -51,7 +51,6 @@ class PKGeocoder {
                         let placemark = result![0]
                         item.result = placemark
                         
-                        // Save the result to cache!
                         self.cache.append(item)
                     }
                     
@@ -66,6 +65,13 @@ class PKGeocoder {
     private var cache: [CodingItem] = []
     
     func code(_ coordinate: CLLocationCoordinate2D, completionHandler: @escaping (CLPlacemark?) -> Void) -> Int {
+        let cached = cache.first(where: { (item: CodingItem) -> Bool in item.coordinate.isNear(another: coordinate) })
+        if cached != nil {
+            print("returned from cache")
+            completionHandler(cached!.result!)
+            return -1
+        }
+        
         let item = CodingItem(coordinate, completionHandler: completionHandler)
         if current == nil {
             current = item
@@ -75,6 +81,13 @@ class PKGeocoder {
         return item.index
     }
     func cancel(index: Int) {
+        if current != nil && current!.index > index {
+            return
+        }
+        if index == -1 {
+            return
+        }
+        
         if current?.index == index {
             current!.cancelled = true
         } else {
@@ -84,4 +97,16 @@ class PKGeocoder {
         }
     }
     init() {}
+}
+
+extension CLLocationCoordinate2D {
+    func isNear(another: CLLocationCoordinate2D) -> Bool {
+        let delta1 = abs(latitude - another.latitude)
+        let delta2 = abs(longitude - another.longitude)
+        if delta1 < Double.leastNonzeroMagnitude && delta2 < Double.leastNonzeroMagnitude {
+            return true
+        } else {
+            return false
+        }
+    }
 }
