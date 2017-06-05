@@ -31,6 +31,8 @@ class PKMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            break
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
