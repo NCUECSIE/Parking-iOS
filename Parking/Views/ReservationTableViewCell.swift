@@ -23,6 +23,10 @@ import UIKit
             
             codingId = PKGeocoder.shared.code(reservation.space.location) { result in
                 self.placemark = result
+                self.codingId = nil
+            }
+            if codingId == -1 {
+                self.codingId = nil
             }
         }
     }

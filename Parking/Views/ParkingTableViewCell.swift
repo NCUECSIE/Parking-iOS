@@ -28,6 +28,10 @@ class ParkingTableViewCell: UITableViewCell {
             
             codingId = PKGeocoder.shared.code(parking.space.location) { result in
                 self.placemark = result
+                self.codingId = nil
+            }
+            if codingId == -1 {
+                self.codingId = nil
             }
         }
     }

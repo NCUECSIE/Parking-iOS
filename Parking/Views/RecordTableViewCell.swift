@@ -40,6 +40,10 @@ class RecordTableViewCell: UITableViewCell {
             
             codingId = PKGeocoder.shared.code(record.space.location) { result in
                 self.placemark = result
+                self.codingId = nil
+            }
+            if codingId == -1 {
+                self.codingId = nil
             }
         }
     }
