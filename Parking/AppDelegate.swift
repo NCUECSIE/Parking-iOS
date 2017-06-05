@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dictionary = try! PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String: Any]
         
         if let PKAccessToken = dictionary["PKAccessToken"] as? String {
-            _ = PKKeychain.set(key: "pkserver", value: PKAccessToken)
+            if PKKeychain.get(key: "pkserver") == nil {
+                _ = PKKeychain.set(key: "pkserver", value: PKAccessToken)
+            }
         }
         
         service = PKService()

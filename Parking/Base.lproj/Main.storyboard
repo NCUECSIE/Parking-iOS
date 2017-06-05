@@ -376,10 +376,10 @@
             </objects>
             <point key="canvasLocation" x="2634" y="560"/>
         </scene>
-        <!--帳單-->
+        <!--測試用設定-->
         <scene sceneID="7DK-4f-t1h">
             <objects>
-                <viewController id="g3o-eR-VRj" sceneMemberID="viewController">
+                <viewController id="g3o-eR-VRj" customClass="InternalSettingsViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1hr-44-oTq"/>
                         <viewControllerLayoutGuide type="bottom" id="Gh8-tD-LgN"/>
@@ -387,9 +387,45 @@
                     <view key="view" contentMode="scaleToFill" id="VyA-3K-O7W">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gBz-Zo-oQH">
+                                <rect key="frame" x="36" y="84" width="248" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKToken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdD-fP-6Wd">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="18"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1A8-M4-J77">
+                                        <rect key="frame" x="0.0" y="18" width="248" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqc-nW-jcE">
+                                <rect key="frame" x="106" y="469" width="108" height="30"/>
+                                <state key="normal" title="儲存並重新開啟"/>
+                                <connections>
+                                    <action selector="saveToken" destination="g3o-eR-VRj" eventType="touchUpInside" id="eyh-PD-6mn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gBz-Zo-oQH" firstAttribute="top" secondItem="1hr-44-oTq" secondAttribute="bottom" constant="20" id="2Sx-GB-zrl"/>
+                            <constraint firstItem="bqc-nW-jcE" firstAttribute="centerX" secondItem="VyA-3K-O7W" secondAttribute="centerX" id="4xl-cR-pOS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gBz-Zo-oQH" secondAttribute="trailing" constant="20" id="Uj5-D0-Aje"/>
+                            <constraint firstItem="Gh8-tD-LgN" firstAttribute="top" secondItem="bqc-nW-jcE" secondAttribute="bottom" constant="20" id="ddZ-Es-Cig"/>
+                            <constraint firstItem="gBz-Zo-oQH" firstAttribute="leading" secondItem="VyA-3K-O7W" secondAttribute="leadingMargin" constant="20" id="nR4-eC-0LT"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="帳單" image="TabBarItems/Invoice" selectedImage="TabBarItems/Invoice" id="4hy-Gg-r7I"/>
+                    <tabBarItem key="tabBarItem" title="測試用設定" image="TabBarItems/Invoice" selectedImage="TabBarItems/Invoice" id="4hy-Gg-r7I"/>
+                    <connections>
+                        <outlet property="tokenField" destination="1A8-M4-J77" id="Gzg-AI-xUh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfg-fU-Ymj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
