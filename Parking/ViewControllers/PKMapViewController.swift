@@ -2,20 +2,45 @@ import UIKit
 import MapKit
 import Dispatch
 
-class PKMapViewController: UIViewController, MKMapViewDelegate {
+class PKMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var notice: UILabel!
     var cancelNoticeWorkItem: DispatchWorkItem?
+    lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        
+        manager.delegate = self
+        
+        return manager
+    }()
+    
+    var currentLocationAnnotation: MKAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        map.showsUserLocation = true
-        map.showsPointsOfInterest = true
-        
         let testRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 24.06, longitude: 120.545),
                                             span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
         map.setRegion(testRegion, animated: false)
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        map.showsUserLocation = true
+        map.showsPointsOfInterest = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            map.showsUserLocation = true
+        default:
+            let alert = UIAlertController(title: "您不允許我們使用您的位置", message: "我們將無法在地圖上顯示您的位置", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "瞭解", style: .cancel))
+            
+            present(alert, animated: true)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,6 +72,8 @@ class PKMapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         switch annotation {
+        case is MKUserLocation:
+            return nil
         case let placemark as MKPlacemark:
             guard let space = placemark.addressDictionary?["space"] as? PKSpace else {
                 let annotation = MKPinAnnotationView()
