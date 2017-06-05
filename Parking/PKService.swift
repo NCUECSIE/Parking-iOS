@@ -177,7 +177,32 @@ class PKService {
             }
         }
     }
-    
+    func parking(completionHandler: @escaping (Result<[PKParking]>) -> Void) {
+        var request = makeRequest(on: "parking")
+        request.httpMethod = "GET"
+        
+        Alamofire.request(request).PKResponse { response in
+            switch response {
+            case .error(_):
+                completionHandler(.error(nil))
+            case let .success(json):
+                var hasDeserializationError = false
+                let result = json.arrayValue.map { object -> PKParking? in
+                    let result = object.pkparking
+                    if result == nil {
+                        hasDeserializationError = true
+                    }
+                    return result
+                }
+                
+                if hasDeserializationError {
+                    completionHandler(.error("資料序列錯誤"))
+                } else {
+                    completionHandler(.success(result.map { $0! }))
+                }
+            }
+        }
+    }
     func makeRequest(on path: String, with queries: [String: String] = [:]) -> URLRequest {
         let url = URL(string: path, relativeTo: self.rootEndpoint)!
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!

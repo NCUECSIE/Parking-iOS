@@ -417,7 +417,7 @@
         <!--車輛位置-->
         <scene sceneID="KQE-3K-5GH">
             <objects>
-                <viewController id="7df-kd-GzO" sceneMemberID="viewController">
+                <viewController id="7df-kd-GzO" customClass="ParkingTableViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9B5-pd-Hwm"/>
                         <viewControllerLayoutGuide type="bottom" id="pVw-Dw-d3z"/>
@@ -425,13 +425,38 @@
                     <view key="view" contentMode="scaleToFill" id="lKG-QV-QPj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-9t-tr3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="adR-vu-gyP">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="adR-vu-gyP" id="W27-hY-G2p">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7df-kd-GzO" id="nG0-Jo-00z"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HBx-9t-tr3" firstAttribute="top" secondItem="lKG-QV-QPj" secondAttribute="top" id="7Xn-1v-2Yc"/>
+                            <constraint firstAttribute="trailing" secondItem="HBx-9t-tr3" secondAttribute="trailing" id="95N-r7-f8F"/>
+                            <constraint firstItem="HBx-9t-tr3" firstAttribute="leading" secondItem="lKG-QV-QPj" secondAttribute="leading" id="cLi-bQ-f6s"/>
+                            <constraint firstItem="pVw-Dw-d3z" firstAttribute="top" secondItem="HBx-9t-tr3" secondAttribute="bottom" id="kEr-sj-gKN"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="車輛位置" image="TabBarItems/Parking-Alt" selectedImage="TabBarItems/Parking-Alt" id="xs4-We-MSj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gx5-YV-ziM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="1217"/>
+            <point key="canvasLocation" x="1021.875" y="1216.9014084507041"/>
         </scene>
         <!--地圖-->
         <scene sceneID="rCe-oV-lMW">
