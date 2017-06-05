@@ -1,7 +1,8 @@
 import UIKit
 import CoreLocation
+import MapKit
 
-class ParkingTableViewController: UIViewController, UITableViewDataSource {
+class ParkingTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     lazy var refreshControl: UIRefreshControl = {
         let control = UIRefreshControl()
@@ -67,5 +68,25 @@ class ParkingTableViewController: UIViewController, UITableViewDataSource {
         navigationController?.navigationBar.topItem?.title = "車輛資訊"
         refreshControl.beginRefreshing()
         loadParkings()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "動作", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "在地圖中開啟", style: .default) { _ in
+            let parking = self.parkings[indexPath.row]
+            
+            let regionDistance = 2000.0
+            let coordinates = parking.space.location
+            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = parking.plate
+            
+            mapItem.openInMaps(launchOptions: options)
+        })
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
     }
 }

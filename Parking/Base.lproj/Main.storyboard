@@ -398,7 +398,7 @@
         <!--歷史紀錄-->
         <scene sceneID="OBD-WU-imB">
             <objects>
-                <viewController id="vqv-Mc-Mpd" sceneMemberID="viewController">
+                <viewController id="vqv-Mc-Mpd" customClass="RecordsTableViewController" customModule="Parking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kct-VK-hZy"/>
                         <viewControllerLayoutGuide type="bottom" id="2xi-Ky-Pf5"/>
@@ -406,13 +406,94 @@
                     <view key="view" contentMode="scaleToFill" id="bU1-ZS-nFM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y82-cM-nvR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordCell" rowHeight="78" id="QXQ-ru-wmU" customClass="RecordTableViewCell" customModule="Parking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QXQ-ru-wmU" id="a9U-Sk-YbT">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="77.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fKq-M7-8gE">
+                                                    <rect key="frame" x="8" y="8" width="304" height="44.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kV-cF-zhU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="304" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKZ-7985" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MT5-Dk-OM2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="252" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="彰化市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IU-a4-NSg">
+                                                                    <rect key="frame" x="252" y="0.0" width="52" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5X-Po-D70">
+                                                            <rect key="frame" x="0.0" y="28.5" width="304" height="16"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下午 12:00｜12 個小時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmW-1w-RhU">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="270.5" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="60 元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XV5-tx-lVm">
+                                                                    <rect key="frame" x="270.5" y="0.0" width="33.5" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fKq-M7-8gE" firstAttribute="top" secondItem="a9U-Sk-YbT" secondAttribute="top" constant="8" id="5c0-ni-wp4"/>
+                                                <constraint firstAttribute="trailing" secondItem="fKq-M7-8gE" secondAttribute="trailing" constant="8" id="BLw-0T-C2a"/>
+                                                <constraint firstItem="fKq-M7-8gE" firstAttribute="leading" secondItem="a9U-Sk-YbT" secondAttribute="leading" constant="8" id="TLh-WB-LZY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="8IU-a4-NSg" id="com-p4-xib"/>
+                                            <outlet property="chargeLabel" destination="XV5-tx-lVm" id="S6h-7c-rEi"/>
+                                            <outlet property="plateLabel" destination="MT5-Dk-OM2" id="ufL-qo-rGd"/>
+                                            <outlet property="timeAndDurationLabel" destination="PmW-1w-RhU" id="rKP-m4-Jko"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vqv-Mc-Mpd" id="WIg-5t-Mmh"/>
+                                    <outlet property="delegate" destination="vqv-Mc-Mpd" id="FQV-pj-VJR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y82-cM-nvR" firstAttribute="leading" secondItem="bU1-ZS-nFM" secondAttribute="leading" id="7qd-e3-CVb"/>
+                            <constraint firstAttribute="trailing" secondItem="y82-cM-nvR" secondAttribute="trailing" id="Jnb-6h-Xyv"/>
+                            <constraint firstItem="2xi-Ky-Pf5" firstAttribute="top" secondItem="y82-cM-nvR" secondAttribute="bottom" id="oSn-HK-A98"/>
+                            <constraint firstItem="y82-cM-nvR" firstAttribute="top" secondItem="bU1-ZS-nFM" secondAttribute="top" id="x5p-a1-SDN"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="歷史紀錄" image="TabBarItems/History" selectedImage="TabBarItems/History" id="9QZ-tj-TME"/>
+                    <connections>
+                        <outlet property="tableView" destination="y82-cM-nvR" id="gvg-aP-2NI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbe-j7-g46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-121" y="1227"/>
+            <point key="canvasLocation" x="-121.875" y="1226.4084507042253"/>
         </scene>
         <!--車輛位置-->
         <scene sceneID="KQE-3K-5GH">
@@ -493,6 +574,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="7df-kd-GzO" id="nG0-Jo-00z"/>
+                                    <outlet property="delegate" destination="7df-kd-GzO" id="WyQ-aw-PHT"/>
                                 </connections>
                             </tableView>
                         </subviews>

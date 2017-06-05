@@ -10,6 +10,7 @@
 		342F1F621EE5377400CCCA2E /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F1F611EE5377400CCCA2E /* ParkingTableViewCell.swift */; };
 		342F1F641EE54A2600CCCA2E /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F1F631EE54A2600CCCA2E /* RecordTableViewCell.swift */; };
 		342F1F661EE54A4300CCCA2E /* RecordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F1F651EE54A4300CCCA2E /* RecordsTableViewController.swift */; };
+		342F1F6B1EE54D8300CCCA2E /* PKRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F1F6A1EE54D8300CCCA2E /* PKRecord.swift */; };
 		343560A31EDFC4E700579F1C /* PKSpaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343560A21EDFC4E700579F1C /* PKSpaceViewController.swift */; };
 		344365441EDF7C7A001A2151 /* PKSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365431EDF7C7A001A2151 /* PKSpace.swift */; };
 		344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365451EDF824A001A2151 /* PKMapViewController.swift */; };
@@ -68,6 +69,7 @@
 		342F1F611EE5377400CCCA2E /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParkingTableViewCell.swift; path = Views/ParkingTableViewCell.swift; sourceTree = "<group>"; };
 		342F1F631EE54A2600CCCA2E /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordTableViewCell.swift; path = Views/RecordTableViewCell.swift; sourceTree = "<group>"; };
 		342F1F651EE54A4300CCCA2E /* RecordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordsTableViewController.swift; path = ViewControllers/RecordsTableViewController.swift; sourceTree = "<group>"; };
+		342F1F6A1EE54D8300CCCA2E /* PKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKRecord.swift; path = Models/PKRecord.swift; sourceTree = "<group>"; };
 		343560A21EDFC4E700579F1C /* PKSpaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKSpaceViewController.swift; path = ViewControllers/PKSpaceViewController.swift; sourceTree = "<group>"; };
 		344365431EDF7C7A001A2151 /* PKSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKSpace.swift; sourceTree = "<group>"; };
 		344365451EDF824A001A2151 /* PKMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKMapViewController.swift; path = ViewControllers/PKMapViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				34992C8E1EE4106600F42852 /* PKContactInformation.swift */,
 				34992C901EE4116D00F42852 /* PKProviderTypes.swift */,
 				34992C981EE519F400F42852 /* PKParking.swift */,
+				342F1F6A1EE54D8300CCCA2E /* PKRecord.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				38FB1BDD1EDDA21400343560 /* PKService.swift in Sources */,
 				344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */,
 				34992C891EE30FA000F42852 /* PKReservation.swift in Sources */,
+				342F1F6B1EE54D8300CCCA2E /* PKRecord.swift in Sources */,
 				38FB1A661EDD77AC00343560 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
