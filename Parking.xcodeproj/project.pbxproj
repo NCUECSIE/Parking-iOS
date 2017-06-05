@@ -11,6 +11,16 @@
 		344365441EDF7C7A001A2151 /* PKSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365431EDF7C7A001A2151 /* PKSpace.swift */; };
 		344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344365451EDF824A001A2151 /* PKMapViewController.swift */; };
 		3457C8361EE2E82300CA73CE /* ReservationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457C8351EE2E82300CA73CE /* ReservationsTableViewController.swift */; };
+		34992C871EE30E0700F42852 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C861EE30E0700F42852 /* ReservationTableViewCell.swift */; };
+		34992C891EE30FA000F42852 /* PKReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C881EE30FA000F42852 /* PKReservation.swift */; };
+		34992C8B1EE316C600F42852 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C8A1EE316C600F42852 /* Extensions.swift */; };
+		34992C8D1EE4103500F42852 /* PKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C8C1EE4103500F42852 /* PKProvider.swift */; };
+		34992C8F1EE4106600F42852 /* PKContactInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C8E1EE4106600F42852 /* PKContactInformation.swift */; };
+		34992C911EE4116D00F42852 /* PKProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C901EE4116D00F42852 /* PKProviderTypes.swift */; };
+		34992C931EE4587B00F42852 /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C921EE4587B00F42852 /* ReserveViewController.swift */; };
+		34992C951EE4A0AE00F42852 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C941EE4A0AE00F42852 /* ReservationViewController.swift */; };
+		34992C971EE519C200F42852 /* ParkingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C961EE519C200F42852 /* ParkingTableViewController.swift */; };
+		34992C991EE519F400F42852 /* PKParking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34992C981EE519F400F42852 /* PKParking.swift */; };
 		38FB1A661EDD77AC00343560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FB1A651EDD77AC00343560 /* AppDelegate.swift */; };
 		38FB1A6B1EDD77AC00343560 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FB1A691EDD77AC00343560 /* Main.storyboard */; };
 		38FB1A6D1EDD77AC00343560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FB1A6C1EDD77AC00343560 /* Assets.xcassets */; };
@@ -56,6 +66,16 @@
 		344365431EDF7C7A001A2151 /* PKSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKSpace.swift; sourceTree = "<group>"; };
 		344365451EDF824A001A2151 /* PKMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKMapViewController.swift; path = ViewControllers/PKMapViewController.swift; sourceTree = "<group>"; };
 		3457C8351EE2E82300CA73CE /* ReservationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationsTableViewController.swift; sourceTree = "<group>"; };
+		34992C861EE30E0700F42852 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationTableViewCell.swift; path = Views/ReservationTableViewCell.swift; sourceTree = "<group>"; };
+		34992C881EE30FA000F42852 /* PKReservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKReservation.swift; path = Models/PKReservation.swift; sourceTree = "<group>"; };
+		34992C8A1EE316C600F42852 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		34992C8C1EE4103500F42852 /* PKProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKProvider.swift; sourceTree = "<group>"; };
+		34992C8E1EE4106600F42852 /* PKContactInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKContactInformation.swift; sourceTree = "<group>"; };
+		34992C901EE4116D00F42852 /* PKProviderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKProviderTypes.swift; sourceTree = "<group>"; };
+		34992C921EE4587B00F42852 /* ReserveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReserveViewController.swift; path = ViewControllers/ReserveViewController.swift; sourceTree = "<group>"; };
+		34992C941EE4A0AE00F42852 /* ReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationViewController.swift; path = ViewControllers/ReservationViewController.swift; sourceTree = "<group>"; };
+		34992C961EE519C200F42852 /* ParkingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParkingTableViewController.swift; path = ViewControllers/ParkingTableViewController.swift; sourceTree = "<group>"; };
+		34992C981EE519F400F42852 /* PKParking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PKParking.swift; path = Models/PKParking.swift; sourceTree = "<group>"; };
 		38FB1A621EDD77AC00343560 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FB1A651EDD77AC00343560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FB1A6A1EDD77AC00343560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34992C851EE30DE800F42852 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34992C861EE30E0700F42852 /* ReservationTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		38FB1A591EDD77AC00343560 = {
 			isa = PBXGroup;
 			children = (
@@ -142,13 +170,14 @@
 		38FB1A641EDD77AC00343560 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
+				34992C851EE30DE800F42852 /* Views */,
 				38FB1BDB1EDDA20500343560 /* Models */,
 				38FB1BD41EDD9F0700343560 /* Utilities */,
 				38FB1BD11EDD9C8800343560 /* ViewControllers */,
 				38FB1A931EDD77FF00343560 /* Parking.entitlements */,
 				38FB1A651EDD77AC00343560 /* AppDelegate.swift */,
-				38FB1A691EDD77AC00343560 /* Main.storyboard */,
 				38FB1A6C1EDD77AC00343560 /* Assets.xcassets */,
+				38FB1A691EDD77AC00343560 /* Main.storyboard */,
 				38FB1A6E1EDD77AC00343560 /* LaunchScreen.storyboard */,
 				38FB1A711EDD77AC00343560 /* Info.plist */,
 				38FB1BE01EDDAEC500343560 /* config.plist */,
@@ -184,6 +213,9 @@
 				344365451EDF824A001A2151 /* PKMapViewController.swift */,
 				343560A21EDFC4E700579F1C /* PKSpaceViewController.swift */,
 				3457C8351EE2E82300CA73CE /* ReservationsTableViewController.swift */,
+				34992C921EE4587B00F42852 /* ReserveViewController.swift */,
+				34992C941EE4A0AE00F42852 /* ReservationViewController.swift */,
+				34992C961EE519C200F42852 /* ParkingTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -203,6 +235,12 @@
 			children = (
 				38FB1BDC1EDDA21400343560 /* PKService.swift */,
 				344365431EDF7C7A001A2151 /* PKSpace.swift */,
+				34992C881EE30FA000F42852 /* PKReservation.swift */,
+				34992C8A1EE316C600F42852 /* Extensions.swift */,
+				34992C8C1EE4103500F42852 /* PKProvider.swift */,
+				34992C8E1EE4106600F42852 /* PKContactInformation.swift */,
+				34992C901EE4116D00F42852 /* PKProviderTypes.swift */,
+				34992C981EE519F400F42852 /* PKParking.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -520,18 +558,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34992C971EE519C200F42852 /* ParkingTableViewController.swift in Sources */,
+				34992C871EE30E0700F42852 /* ReservationTableViewCell.swift in Sources */,
+				34992C911EE4116D00F42852 /* PKProviderTypes.swift in Sources */,
 				38FB1BE31EDDC3A800343560 /* CustomAnnotationaView.swift in Sources */,
 				38FB1BDA1EDDA1DD00343560 /* SegueIdentifiers.swift in Sources */,
 				3457C8361EE2E82300CA73CE /* ReservationsTableViewController.swift in Sources */,
+				34992C951EE4A0AE00F42852 /* ReservationViewController.swift in Sources */,
+				34992C931EE4587B00F42852 /* ReserveViewController.swift in Sources */,
 				38FB1BE51EDDC41E00343560 /* CustomAnnotation.swift in Sources */,
 				38FB1BD31EDD9CA700343560 /* LoginRequestViewController.swift in Sources */,
 				343560A31EDFC4E700579F1C /* PKSpaceViewController.swift in Sources */,
 				38FB1BD61EDD9F1B00343560 /* PKKeychain.swift in Sources */,
+				34992C991EE519F400F42852 /* PKParking.swift in Sources */,
 				38FB1BD81EDD9F7B00343560 /* PKLoginFlowNavigationControllerDelegate.swift in Sources */,
 				38FB1BDF1EDDAE7500343560 /* Result.swift in Sources */,
+				34992C8F1EE4106600F42852 /* PKContactInformation.swift in Sources */,
 				344365441EDF7C7A001A2151 /* PKSpace.swift in Sources */,
+				34992C8B1EE316C600F42852 /* Extensions.swift in Sources */,
+				34992C8D1EE4103500F42852 /* PKProvider.swift in Sources */,
 				38FB1BDD1EDDA21400343560 /* PKService.swift in Sources */,
 				344365461EDF824A001A2151 /* PKMapViewController.swift in Sources */,
+				34992C891EE30FA000F42852 /* PKReservation.swift in Sources */,
 				38FB1A661EDD77AC00343560 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

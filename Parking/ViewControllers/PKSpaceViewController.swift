@@ -15,7 +15,7 @@ class PKSpaceViewController: UIViewController {
     }
     override func viewDidLoad() {
         // 1. 將地圖移動到正確位置
-        let coordinate = CLLocationCoordinate2D(latitude: space.latitude, longitude: space.longitude)
+        let coordinate = space.location
         map.addAnnotation(MKPlacemark(coordinate: coordinate))
         map.setRegion(MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)), animated: false)
         
@@ -29,11 +29,16 @@ class PKSpaceViewController: UIViewController {
                 })
                 self.present(alertController, animated: true)
             case .success(let space):
-                let formatter = DateComponentsFormatter()
-                formatter.unitsStyle = .full
+                let dateComponentsFormatter = DateComponentsFormatter()
+                dateComponentsFormatter.unitsStyle = .full
+                let currencyFormatter = NumberFormatter()
+                currencyFormatter.numberStyle = .currency
                 
-                self.providerName.text = "未知"
-                self.fee.text = "每 \(formatter.string(from: space.fee!.unitTime)!) \(space.fee!.charge) 新台幣"
+                let dateString = "\(dateComponentsFormatter.string(from: space.fee!.unitTime)!)"
+                let currencyString = "\(currencyFormatter.string(from: NSNumber(value: space.fee!.charge))!)"
+                
+                self.providerName.text = "\(space.provider!.name)"
+                self.fee.text = "每 \(dateString) \(currencyString)"
                 self.markings.text = space.markings!
             }
         }

@@ -20,7 +20,15 @@ class PKMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = "地圖"
+        if reservationQueued {
+            reservationQueued = false
+            
+            tabBarController?.selectedIndex = 1
+            let controller = tabBarController?.selectedViewController as! ReservationsTableViewController
+            controller.makeReservation(around: reservedGrid)
+        } else {
+            self.navigationController?.navigationBar.topItem?.title = "地圖"
+        }
     }
     
     func show(message: String) {
@@ -48,6 +56,7 @@ class PKMapViewController: UIViewController, MKMapViewDelegate {
             
             let parked = space.parked
             let annotation = MKPinAnnotationView()
+            
             if parked {
                 annotation.pinTintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             } else {
@@ -72,7 +81,7 @@ class PKMapViewController: UIViewController, MKMapViewDelegate {
                 
                 self.map.removeAnnotations(self.map.annotations)
                 self.map.addAnnotations(result.map { space -> MKAnnotation in
-                    MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: space.latitude, longitude: space.longitude),
+                    MKPlacemark(coordinate: space.location,
                                 addressDictionary: [ "space": space ])
                 })
             }
@@ -96,8 +105,11 @@ class PKMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    var reservationQueued = false
+    var reservedGrid: CLLocationCoordinate2D!
     @IBAction func reserve(segue: UIStoryboardSegue) {
-        let _ = (segue.source as! PKSpaceViewController).space!
-        let _ = self.tabBarController
+        let selectedSpace = (segue.source as! PKSpaceViewController).space!
+        reservedGrid = selectedSpace.location.normalized()
+        reservationQueued = true
     }
 }

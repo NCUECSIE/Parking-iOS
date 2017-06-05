@@ -5,4 +5,6 @@ enum PKSegueIdentifiers: String {
     case loginRequest = "LoginRequest"
     case mainView = "MainView"
     case spaceDetail = "SpaceDetail"
+    case reserve = "Reserve"
+    case showReservation = "ShowReservation"
 }

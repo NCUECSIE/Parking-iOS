@@ -83,14 +83,20 @@ class PKService {
                     completionHandler(.error(error))
                 }
             } else if case let .success(json) = response {
-                let result = json.arrayValue.map { object -> PKSpace in
-                    PKSpace(parked: object["parked"].boolValue,
-                            latitude: object["location"]["latitude"].doubleValue,
-                            longitude: object["location"]["longitude"].doubleValue,
-                            _id: object["_id"].stringValue,
-                            fee: nil, providerId: nil, markings: nil)
+                var hasDeserializationError = false
+                let result = json.arrayValue.map { object -> PKSpace? in
+                    let result = object.pkspace
+                    if result == nil {
+                        hasDeserializationError = true
+                    }
+                    return result
                 }
-                completionHandler(.success(result))
+                
+                if hasDeserializationError {
+                    completionHandler(.error("資料序列錯誤"))
+                } else {
+                    completionHandler(.success(result.map { $0! }))
+                }
             }
         }
     }
@@ -102,15 +108,72 @@ class PKService {
             if case let .error(_, error) = response {
                 completionHandler(.error(error))
             } else if case let .success(json) = response {
-                let result = PKSpace(parked: json["parked"].boolValue,
-                                     latitude: json["location"]["latitude"].doubleValue,
-                                     longitude: json["location"]["longitude"].doubleValue,
-                                     _id: json["_id"].stringValue,
-                                     fee: Fee(unitTime: json["fee"]["unitTime"].doubleValue, charge: json["fee"]["charge"].doubleValue),
-                                     providerId: json["providerId"].stringValue,
-                                     markings: json["markings"].stringValue)
+                guard let result = json.pkspace else {
+                    completionHandler(.error("資料序列錯誤"))
+                    return
+                }
                 
                 completionHandler(.success(result))
+            }
+        }
+    }
+    
+    func reservations(completionHandler: @escaping (Result<[PKReservation]>) -> Void) {
+        var request = makeRequest(on: "reservations")
+        request.httpMethod = "GET"
+        
+        Alamofire.request(request).PKResponse { response in
+            switch response {
+            case .error(_):
+                completionHandler(.error(nil))
+            case let .success(json):
+                var hasDeserializationError = false
+                let result = json.arrayValue.map { object -> PKReservation? in
+                    let result = object.pkreservation
+                    if result == nil {
+                        hasDeserializationError = true
+                    }
+                    return result
+                }
+                
+                if hasDeserializationError {
+                    completionHandler(.error("資料序列錯誤"))
+                } else {
+                    completionHandler(.success(result.map { $0! }))
+                }
+            }
+        }
+    }
+    func makeReservation(in grid: CLLocationCoordinate2D, on date: Date, completionHandler: @escaping (Result<Void>) -> Void) {
+        let body: JSON = [
+            "time": ISO8601DateFormatter().string(from: date),
+            "grid": grid.normalized().spec
+        ]
+        
+        var request = makeRequest(on: "reservations")
+        request.httpMethod = "POST"
+        request.httpBody = try? body.rawData()
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        Alamofire.request(request).PKResponse { response in
+            switch response {
+            case .error(_):
+                completionHandler(.error(nil))
+            case .success(_):
+                completionHandler(.success())
+            }
+        }
+    }
+    func cancel(_ reservation: PKReservation, completionHandler: @escaping (Result<Void>) -> Void) {
+        var request = makeRequest(on: "reservations/\(reservation._id)")
+        request.httpMethod = "DELETE"
+        
+        Alamofire.request(request).PKResponse { response in
+            switch response {
+            case .error(_):
+                completionHandler(.error(nil))
+            case .success(_):
+                completionHandler(.success())
             }
         }
     }
