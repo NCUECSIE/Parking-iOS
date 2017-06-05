@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="knO-AX-sgA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="knO-AX-sgA">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -376,7 +376,7 @@
             </objects>
             <point key="canvasLocation" x="2634" y="560"/>
         </scene>
-        <!--發票-->
+        <!--帳單-->
         <scene sceneID="7DK-4f-t1h">
             <objects>
                 <viewController id="g3o-eR-VRj" sceneMemberID="viewController">
@@ -389,7 +389,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="發票" image="TabBarItems/Invoice" selectedImage="TabBarItems/Invoice" id="4hy-Gg-r7I"/>
+                    <tabBarItem key="tabBarItem" title="帳單" image="TabBarItems/Invoice" selectedImage="TabBarItems/Invoice" id="4hy-Gg-r7I"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfg-fU-Ymj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -426,17 +426,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-9t-tr3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-9t-tr3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="adR-vu-gyP">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParkingCell" rowHeight="69" id="adR-vu-gyP" customClass="ParkingTableViewCell" customModule="Parking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="adR-vu-gyP" id="W27-hY-G2p">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="L7r-gv-7hg">
+                                                    <rect key="frame" x="8" y="8" width="304" height="44.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXx-6E-yhQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="304" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKZ-7985" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yu-dD-27b">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="252" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="彰化市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqO-R4-j7R">
+                                                                    <rect key="frame" x="252" y="0.0" width="52" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-Kb-lxO">
+                                                            <rect key="frame" x="0.0" y="28.5" width="304" height="16"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下午 12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esK-Rb-82t">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="246.5" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="12 個小時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWM-cL-QhU">
+                                                                    <rect key="frame" x="246.5" y="0.0" width="57.5" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="L7r-gv-7hg" secondAttribute="trailing" constant="8" id="3ig-Vy-U3s"/>
+                                                <constraint firstItem="L7r-gv-7hg" firstAttribute="top" secondItem="W27-hY-G2p" secondAttribute="top" constant="8" id="bY6-lG-M3d"/>
+                                                <constraint firstItem="L7r-gv-7hg" firstAttribute="leading" secondItem="W27-hY-G2p" secondAttribute="leading" constant="8" id="cY7-YN-Lpy"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="zqO-R4-j7R" id="cs8-kW-yCc"/>
+                                            <outlet property="beginLabel" destination="esK-Rb-82t" id="ab4-lt-uOp"/>
+                                            <outlet property="durationLabel" destination="CWM-cL-QhU" id="jBS-el-hgx"/>
+                                            <outlet property="plateLabel" destination="1yu-dD-27b" id="RX6-dj-uOz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -453,6 +505,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="車輛位置" image="TabBarItems/Parking-Alt" selectedImage="TabBarItems/Parking-Alt" id="xs4-We-MSj"/>
+                    <connections>
+                        <outlet property="tableView" destination="HBx-9t-tr3" id="rH9-0J-Xao"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gx5-YV-ziM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

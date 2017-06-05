@@ -5,7 +5,7 @@
 	<key>PKAccessToken</key>
 	<string>k3HquZuZngTaWz37/ETwfWUJcrg+OQNw1d7QTSZxB8U=</string>
 	<key>endpoint</key>
-	<string>http://10.0.0.50:8080/</string>
+	<string>http://changhua.shanehsu.idv.tw:10000/</string>
 	<key>facebookAppId</key>
 	<string>203182736857316</string>
 </dict>

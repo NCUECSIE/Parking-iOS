@@ -177,7 +177,7 @@ class PKService {
             }
         }
     }
-    func parking(completionHandler: @escaping (Result<[PKParking]>) -> Void) {
+    func parkings(completionHandler: @escaping (Result<[PKParking]>) -> Void) {
         var request = makeRequest(on: "parking")
         request.httpMethod = "GET"
         

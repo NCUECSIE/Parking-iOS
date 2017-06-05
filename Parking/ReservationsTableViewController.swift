@@ -7,6 +7,11 @@ class ReservationsTableViewController: UIViewController, UITableViewDataSource {
     lazy var geocoder: CLGeocoder = {
         return CLGeocoder()
     }()
+    lazy var refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(reloadReservation), for: .valueChanged)
+        return control
+    }()
     lazy var addButton: UIBarButtonItem = {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(makeReservation))
     }()
@@ -14,6 +19,7 @@ class ReservationsTableViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.refreshControl = refreshControl
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -22,6 +28,7 @@ class ReservationsTableViewController: UIViewController, UITableViewDataSource {
         navigationController?.navigationBar.topItem?.rightBarButtonItem = addButton
         navigationController?.navigationBar.topItem?.title = "預約"
         
+        refreshControl.beginRefreshing()
         reloadReservation()
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -71,6 +78,8 @@ class ReservationsTableViewController: UIViewController, UITableViewDataSource {
                 self.reservations = reservations
                 self.tableView.reloadData()
             }
+            
+            self.refreshControl.endRefreshing()
         }
     }
     

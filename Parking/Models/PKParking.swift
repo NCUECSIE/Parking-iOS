@@ -10,7 +10,7 @@ struct PKParking {
     init?(from object: JSON) {
         guard let __id = object["_id"].string,
             let _plate = object["plate"].string,
-            let _begin = object["date"].date,
+            let _begin = object["begin"].date,
             let _space = object["space"].pkspace else {
                 return nil
         }
